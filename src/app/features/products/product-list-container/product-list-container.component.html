@@ -1,0 +1,57 @@
+<!-- <router-outlet></router-outlet> -->
+<div class="container">
+  <!-- filters -->
+  <section class="filters">
+    <!-- search box -->
+    <div class="search-box">
+      <input class="search-box__input" placeholder="Search..." type="text" name="txt_search" id="">
+      <button type="submit" class="search-box__btn">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+    <!-- filter list -->
+    <div>
+      <!-- filter header -->
+      <h5>Categories</h5>
+      <!-- filter list -->
+      <ul class="list list--vr-separator">
+        <li *ngFor="let item of liItems" class="link list__item"><i [class]="item.iconClassName"></i>{{item.liLabel}}
+        </li>
+      </ul>
+    </div>
+    <!-- filter tags -->
+    <div>
+      <!-- filter header -->
+      <h5>Tags</h5>
+      <!-- filter tags -->
+      <div class="tags">
+        <span class="tag">Nike</span>
+        <span class="tag">Travel</span>
+        <span class="tag">Sport</span>
+        <span class="tag">Tv</span>
+        <span class="tag">Books</span>
+        <span class="tag">Tech</span>
+        <span class="tag">Addidas</span>
+        <span class="tag">Promo</span>
+        <span class="tag">Reading</span>
+        <span class="tag">Social</span>
+        <span class="tag">New</span>
+        <span class="tag">Special</span>
+        <span class="tag">Food</span>
+        <span class="tag">Used</span>
+      </div>
+    </div>
+    <!-- related items -->
+    <div>
+      <!-- title -->
+      <h5></h5>
+      <!-- small item -->
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </section>
+
+  <app-product-list lass="item-listing"></app-product-list>
+ 
+</div>

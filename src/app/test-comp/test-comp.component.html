@@ -1,0 +1,53 @@
+<!-- Property Binding Example -->
+<img [attr.Src]="'https://picsum.photos/200/300'" alt="">
+
+<!-- ngclass , ngStyle Example -->
+<div class="default" [ngClass]="{'activeClass' : active}">test div</div>
+
+<div class="default" [ngStyle]="{'font-size' : '32px' }">test div</div>
+<div class="default" [ngStyle]="{'fontSize.px': 32 }">test div</div>
+
+
+<!-- Self-study >> custom directive -->
+<div *ngIf="active; else exElement">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores voluptatum iste
+  deserunt eligendi itaque illo voluptas doloremque perspiciatis illum facilis.</div>
+
+<!-- Will take place in dom even if it's condition not true -->
+<!-- <div *ngIf="!active;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores voluptatum iste
+    deserunt eligendi itaque illo voluptas doloremque perspiciatis illum facilis.</div> -->
+
+<!-- ng-template >> appear in dom only under a certain condition -->
+<!-- #exElement >> template ref (reference) -->
+<ng-template #exElement>
+  <section>
+    <aside>
+      <h1>
+        <span>
+          22222Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores voluptatum iste
+          deserunt eligendi itaque illo voluptas doloremque perspiciatis illum facilis.
+        </span>
+      </h1>
+    </aside>
+  </section>
+</ng-template>
+
+
+
+<!-- Example on template ref -->
+
+<div #devEx>
+  This is from devEx
+</div>
+
+<div>
+  refered div content is : {{devEx.innerHTML}}
+</div>
+
+
+<!-- @viewchild == document.getElementById('') -->
+<div #testElRef id="testID"></div>
+
+<!-- @viewchildren == document.querySelectorAll('') -->
+<div #sameTestClass class="sameTestClass">a1</div>
+<div #sameTestClass class="sameTestClass">a2</div>
+<div #sameTestClass class="sameTestClass">a3</div>

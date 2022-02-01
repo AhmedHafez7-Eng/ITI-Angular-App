@@ -1,0 +1,64 @@
+ <!-- tools (sorting , change view , exporting) -->
+ <div class="item-listing__tools">
+   <select class="form-control" name="" id="">
+     <option value="1">Featured</option>
+     <option value="2">Price low to high</option>
+     <option value="3">Price high to low</option>
+     <option value="4">Name</option>
+   </select>
+   <a routerLink='/product-add' class="action-btn">
+
+     <i class="fas fa-plus"></i>
+   </a>
+
+ </div>
+
+
+ <!-- items -->
+ <div class="item-listing__items item-listing--3items">
+   <!-- Directives has two types
+
+    -- Behavioral Directives /
+        -- change the element behaviour but don't affect its presence or absence
+
+    -- Structural Directives / (Always starts with *)
+        -- Determine if the element will be exist or not
+          -- ex) *ngIf , *ngFor
+  -->
+   <!-- If I wanna use keyword index iterator
+     <app-product-item *ngFor="let item of productsArray; let i= index" [productItem]="productsArray[i]"
+     class="item-medium-1">
+   </app-product-item>
+  -->
+
+   <!-- When itemAdded event fire, call this function -->
+   <!-- <app-product-item (itemAdded)="onItemAdded($event)" *ngFor="let item of productsArray" [productItem]="item"
+     class="item-medium-1">
+   </app-product-item> -->
+
+   <!-- Data come from service provider -->
+   <!-- | slice:0:productsArray.length/3 -->
+   <app-product-item *ngFor="let item of productsArray;" [productItem]="item" class="item-medium-1">
+   </app-product-item>
+
+
+   <!-- If I wanna show only first 3 products -->
+   <!-- <app-product-item *ngFor="let item of productsArray.slice(0,3)" [productItem]="item" class="item-medium-1">
+   </app-product-item> -->
+ </div>
+
+ <!-- paging -->
+ <div class="paging">
+   <!-- left arrow -->
+   <div class="paging__arrow">
+     <i class="fas fa-angle-left"></i>
+   </div>
+   <!-- page number -->
+   <div class="paging__number active">1</div>
+   <div class="paging__number" routerLink='/page2'>2</div>
+   <div class="paging__number">3</div>
+   <!-- right arrow -->
+   <div class="paging__arrow">
+     <i class="fas fa-angle-right"></i>
+   </div>
+ </div>

@@ -1,0 +1,17 @@
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 0;
+}
+
+@media screen and (max-width: 1160px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .filters {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,110 @@
+ <!-- middle header -->
+ <div class="header__middle container">
+   <!-- logo -->
+   <a href="#" class="header__logo-box">
+     <img class="header__logo" src="../../../assets/img/logo.png" alt="">
+   </a>
+   <!-- user options -->
+   <div class="header__user-options">
+     <!-- login control -->
+     <a class="link">Login</a>
+     <div class="dropdown">
+       <div class="dropdown__header">
+         <div class="image image--small image--circle"
+           style="background-image: url('../../../assets/img/PersonalImage.png')">
+         </div>
+       </div>
+       <div class="dropdown__body">
+
+       </div>
+     </div>
+     <!-- shopping card dropdown -->
+     <!-- dropdown--opened to open -->
+     <app-drop-down>
+       <ng-container class="header" ng-init="m=1">
+         <div class="image image--small" style="background-image: url('../../../assets/img/icons/shoppingCart.png')">
+           <div class="notification notification--danger">
+             {{calllen()}}
+
+           </div>
+         </div>
+       </ng-container>
+
+       <ng-container class="body">
+         <!-- items -->
+         <ul class="dropdown__items list list--vr-separator">
+           <li *ngFor="let product of theAddedProduct;index as i;" class="dropdown__item list__item">
+             <!-- item small 2 -->
+             <div class="item-small-1">
+               <!-- item data -->
+               <div class="item-small-1__data">
+                 <!-- title -->
+                 <a href="" class="item-small-1__title">{{product.data[0]?.name}} X{{product?.price}}</a>
+                 <!-- price -->
+                 <span class="item-small-1__description">
+                   {{product?.rep}}
+                   X
+                   ${{product?.price}}
+                 </span>
+               </div>
+               <!-- item image -->
+               <div class="item-small-1__image-box">
+                 <a href="#" class="item-small-1__image image" style="background-image: url('{{product?.imagesUrls}}')">
+                 </a>
+                 <a href="#" class="item-small-1__action">
+                   <i class="fas fa-times" (click)='del(i)'></i>
+                 </a>
+               </div>
+             </div>
+           </li>
+         </ul>
+         <!-- totals -->
+         <div class="separator"></div>
+         <div class="block">
+           <span class="lable">Total:</span>
+           <span class="lable">$ {{totalfun()}}</span>
+         </div>
+         <!-- actions -->
+         <div class="block list list--hr">
+           <a class="list-item btn btn--gray" href="">View Cart</a>
+           <a class="list-item btn btn--primary" href="">Checkout</a>
+         </div>
+       </ng-container>
+     </app-drop-down>
+   </div>
+ </div>
+ <!-- lower header -->
+ <div class="header__lower container">
+   <!-- navigation -->
+   <nav class="nav">
+     <ul class="nav__items list list--hr">
+       <!-- items -->
+       <li class="nav__item">
+         <a class="nav__link" routerLink='/items'>Home</a>
+       </li>
+       <li class="nav__item dropdown ">
+         <!-- title -->
+         <a class="nav__link dropdown__header">
+           Products
+         </a>
+         <!-- items -->
+         <div class="dropdown__body">
+           <ul class=" list">
+             <li class="list__item">
+               <a class="nav__inner-link" routerLink='/items'>Product Listing</a>
+             </li>
+             <li class="list__item">
+               <a class="nav__inner-link" routerLink='/product-add'>Add Product</a>
+             </li>
+           </ul>
+         </div>
+       </li>
+       <li class="nav__item">
+         <a class="nav__link" href="#">Contact Us</a>
+       </li>
+       <li class="nav__item">
+         <a class="nav__link" href="#">About Us</a>
+       </li>
+     </ul>
+   </nav>
+ </div>
